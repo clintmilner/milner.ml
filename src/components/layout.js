@@ -9,15 +9,15 @@ import React from "react";
 import MainMenu from "./MainMenu";
 import styled, { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
-   @import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+   //@import url('https://fonts.googleapis.com/css?family=Cinzel');
     body {
-            font-family: 'Cinzel', serif;
+            font-family: 'Helvetica', sans;
             margin: 0;
         }
 `;
 
 const LayoutWrapper = styled.div`
-  max-width: 960px;
+  max-width: 1024px;
   margin: 0 auto;
 `;
 

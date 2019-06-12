@@ -6,22 +6,36 @@
  * Rebasoft - Network Intelligence
  */
 import React from "react";
-import { graphql, StaticQuery, Link } from "gatsby";
+import {graphql, Link, StaticQuery} from "gatsby";
 import styled from "styled-components";
+import SiteInfo from "./SiteInfo";
 
 const MainMenuWrapper = styled.div`
   display: flex;
   background: crimson;
 `;
 
+const MainMenuInner = styled.div`
+    max-width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    width: 1024px;
+    height: 100%;
+`;
+
 const MenuItem = styled(Link)`
   color: #fff;
   display: block;
+  text-transform: uppercase;
+  text-decoration: none;
   padding: 8px 16px;
+  &:hover, &.active {
+      text-decoration: underline;
+  }
 `;
 const MainMenu = () => (
-  <StaticQuery
-    query={graphql`
+    <StaticQuery
+        query={graphql`
       {
         allWordpressWpApiMenusMenusItems(
           filter: { name: { eq: "Main Menu" } }
@@ -37,18 +51,21 @@ const MainMenu = () => (
         }
       }
     `}
-    render={props => (
-      <MainMenuWrapper>
-        {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
-          item => (
-            <MenuItem to={item.object_slug} key={item.title}>
-              {item.title}
-            </MenuItem>
-          )
+        render={props => (
+            <MainMenuWrapper>
+                <MainMenuInner>
+                    <SiteInfo />
+                    {props.allWordpressWpApiMenusMenusItems.edges[0].node.items.map(
+                        item => (
+                            <MenuItem to={item.object_slug} key={item.title}>
+                                {item.title}
+                            </MenuItem>
+                        )
+                    )}
+                </MainMenuInner>
+            </MainMenuWrapper>
         )}
-      </MainMenuWrapper>
-    )}
-  />
+    />
 );
 
 export default MainMenu;
