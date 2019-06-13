@@ -109,7 +109,8 @@ module.exports = {
           "**/tags",
           "**/taxonomies",
           "**/users",
-          "**/menus"
+          "**/menus",
+          "**/portfolio"
         ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {
