@@ -1,5 +1,5 @@
 .idea
-
+/node/repo
 ### Node ###
 # Logs
 logs
@@ -44,3 +44,4 @@ public/
 
 # Bundle stats
 bundle-stats.json
+/node/repo/public/
